@@ -17,6 +17,12 @@ public record CustomerRequest(
         @Email(message = "Email must be in correct format")
         @JsonProperty("email")
         String email,
+        @JsonProperty("pincode")
+        String pincode,
+        @JsonProperty("address")
+        String address,
+        @JsonProperty("phone_number")
+        String phoneNumber,
 
         @NotNull(message = "Password should be present")
         @NotEmpty(message = "Password should be present")

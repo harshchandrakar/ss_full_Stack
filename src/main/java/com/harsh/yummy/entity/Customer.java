@@ -25,4 +25,15 @@ public class Customer {
 
     @Column(name="password", nullable = false)
     private String password;
+
+    @Column(name="address")
+    private String address;
+
+    @Column(name="pincode")
+    private String pincode;
+
+    @Column(name="phone_number")
+    private String phoneNumber;
+
+
 }

@@ -14,6 +14,10 @@ public class RequestInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String authorizationHeader = request.getHeader("Authorization");
+        String requestUri = request.getRequestURI();
+        if (requestUri.startsWith("/api/v1/auth/")) {
+            return true; // Skip token validation for auth paths
+        }
 
         if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
